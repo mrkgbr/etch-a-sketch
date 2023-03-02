@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  width: 500px;
+  height: 500px;
+  border: solid 1px black;
+  margin: 200px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
