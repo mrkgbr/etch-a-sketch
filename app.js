@@ -1,7 +1,9 @@
 const gridContainer = document.querySelector("#container");
 let gridSize = 20;
-let pixel = 15;
-let containerSize = gridSize * pixel;
+let containerSize = 960;
+pixelBorder = 0.5;
+let pixel = containerSize / gridSize - 2 * pixelBorder; // height and width of the grids .grid
+let color = colorGrid;
 
 const reset = document.querySelector("#reset");
 reset.addEventListener("click", createGrid);
@@ -9,16 +11,9 @@ reset.addEventListener("click", createGrid);
 const setGrid = document.querySelector("#set-grid");
 setGrid.addEventListener("click", () => {
   gridSize = prompt("Grid size: ", 20);
-  containerSize = gridSize * pixel;
+  pixel = containerSize / gridSize - 2 * pixelBorder;
   createGrid();
 });
-
-function deleteGrids() {
-  allGrid = document.querySelectorAll(".grid");
-  allGrid.forEach((grid) => {
-    gridContainer.removeChild(grid);
-  });
-}
 
 function randomNumber(num) {
   return Math.floor(Math.random() * (num + 1));
@@ -30,9 +25,17 @@ function createGrid() {
   for (let i = 1; i <= gridSize * gridSize; i++) {
     const div = document.createElement("div");
     div.classList.add("grid");
+    div.style.cssText = `width: ${pixel}px; height: ${pixel}px`;
     gridContainer.appendChild(div);
   }
-  colorGridRandom();
+  color();
+}
+
+function deleteGrids() {
+  allGrid = document.querySelectorAll(".grid");
+  allGrid.forEach((grid) => {
+    gridContainer.removeChild(grid);
+  });
 }
 
 function colorGrid() {
