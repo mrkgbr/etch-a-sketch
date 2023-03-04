@@ -9,12 +9,12 @@ body {
 }
 
 #container {
-  border: solid 1px black;
+  border: solid 0.5px black;
   margin: 50px 0 0 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   padding: 0;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -23,11 +23,9 @@ body {
 }
 
 .grid {
-  height: 14px;
-  width: 14px;
   border: solid 0.5px black;
   margin: 0;
-  padding: 0;
+  padding: 0px;
 }
 
 button {

@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector("#container");
 let gridSize = 20;
 const containerSize = 800; //px
-const pixelBorder = 0.5; //px
+const pixelBorder = 0.667; //px
 let pixel = containerSize / gridSize - 2 * pixelBorder; // height and width of the grids .grid
 let color = colorGrid;
 
@@ -37,7 +37,7 @@ function createGrid() {
   for (let i = 1; i <= gridSize * gridSize; i++) {
     const div = document.createElement("div");
     div.classList.add("grid");
-    div.style.cssText = `width: ${pixel}px; height: ${pixel}px`;
+    div.style.cssText = `min-width: ${pixel}px; min-height: ${pixel}px; flex: 1;`;
     gridContainer.appendChild(div);
   }
   color();
