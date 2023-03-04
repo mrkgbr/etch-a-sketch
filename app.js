@@ -1,12 +1,9 @@
 const gridContainer = document.querySelector("#container");
 let gridSize = 20;
-const containerSize = 800;
-const pixelBorder = 0.5;
+const containerSize = 800; //px
+const pixelBorder = 0.5; //px
 let pixel = containerSize / gridSize - 2 * pixelBorder; // height and width of the grids .grid
 let color = colorGrid;
-
-const reset = document.querySelector("#reset");
-reset.addEventListener("click", createGrid);
 
 const setGrid = document.querySelector("#set-grid");
 setGrid.addEventListener("click", () => {
@@ -46,6 +43,7 @@ function createGrid() {
   color();
 }
 
+// delete all existing grid before create a new grid
 function deleteGrids() {
   allGrid = document.querySelectorAll(".grid");
   allGrid.forEach((grid) => {
@@ -53,6 +51,11 @@ function deleteGrids() {
   });
 }
 
+// clears the grid with the create function
+const reset = document.querySelector("#reset");
+reset.addEventListener("click", createGrid);
+
+// adds black color style to the grid
 function colorGrid() {
   const grids = document.querySelectorAll(".grid");
   grids.forEach((grid) => {
@@ -61,6 +64,8 @@ function colorGrid() {
     });
   });
 }
+
+// adds random color style to the grid
 function colorGridRandom() {
   const grids = document.querySelectorAll(".grid");
   grids.forEach((grid) => {
@@ -72,4 +77,5 @@ function colorGridRandom() {
   });
 }
 
+// create starting page with default values
 createGrid();
