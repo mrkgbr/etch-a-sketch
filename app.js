@@ -1,6 +1,6 @@
 const gridContainer = document.querySelector("#container");
 let gridSize = 20;
-const containerSize = 960;
+const containerSize = 800;
 const pixelBorder = 0.5;
 let pixel = containerSize / gridSize - 2 * pixelBorder; // height and width of the grids .grid
 let color = colorGrid;
@@ -11,6 +11,9 @@ reset.addEventListener("click", createGrid);
 const setGrid = document.querySelector("#set-grid");
 setGrid.addEventListener("click", () => {
   gridSize = prompt("Grid size (max 100): ", 20);
+  if (gridSize > 100) {
+    gridSize = 100;
+  }
   pixel = containerSize / gridSize - 2 * pixelBorder;
   createGrid();
 });
