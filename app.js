@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector("#container");
 let gridSize = 20;
 const containerSize = 800; //px
-const pixelBorder = 0.667; //px
+const pixelBorder = 0.667; //px, for some reason 1px border === 0.667
 let pixel = containerSize / gridSize - 2 * pixelBorder; // height and width of the grids .grid
 let color = colorGrid;
 
