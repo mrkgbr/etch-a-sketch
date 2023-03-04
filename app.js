@@ -1,7 +1,7 @@
 const gridContainer = document.querySelector("#container");
 let gridSize = 20;
-let containerSize = 960;
-pixelBorder = 0.5;
+const containerSize = 960;
+const pixelBorder = 0.5;
 let pixel = containerSize / gridSize - 2 * pixelBorder; // height and width of the grids .grid
 let color = colorGrid;
 
@@ -10,9 +10,21 @@ reset.addEventListener("click", createGrid);
 
 const setGrid = document.querySelector("#set-grid");
 setGrid.addEventListener("click", () => {
-  gridSize = prompt("Grid size: ", 20);
+  gridSize = prompt("Grid size (max 100): ", 20);
   pixel = containerSize / gridSize - 2 * pixelBorder;
   createGrid();
+});
+
+const blackColor = document.querySelector("#color-black");
+blackColor.addEventListener("click", () => {
+  color = colorGrid;
+  color();
+});
+
+const rainbowColor = document.querySelector("#color-rainbow");
+rainbowColor.addEventListener("click", () => {
+  color = colorGridRandom;
+  color();
 });
 
 function randomNumber(num) {
