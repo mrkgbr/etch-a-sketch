@@ -1,8 +1,6 @@
 const gridContainer = document.querySelector("#container");
 let gridSize = 20;
 const containerSize = 800; //px
-const pixelBorder = 0.667; //px, for some reason 1px border === 0.667
-let pixel = containerSize / gridSize - 2 * pixelBorder; // height and width of the grids .grid
 let color = colorGrid;
 
 const setGrid = document.querySelector("#set-grid");
@@ -11,7 +9,6 @@ setGrid.addEventListener("click", () => {
   if (gridSize > 100) {
     gridSize = 100;
   }
-  pixel = containerSize / gridSize - 2 * pixelBorder;
   createGrid();
 });
 
@@ -33,11 +30,15 @@ function randomNumber(num) {
 
 function createGrid() {
   deleteGrids();
-  gridContainer.style.cssText = `width: ${containerSize}px; height: ${containerSize}px`;
+  gridContainer.style.cssText = `
+  width: ${containerSize}px;
+  height: ${containerSize}px;
+  grid-template-columns: repeat(${gridSize}, 1fr);
+  grid-template-rows: repeat(${gridSize}, 1fr);
+  `;
   for (let i = 1; i <= gridSize * gridSize; i++) {
     const div = document.createElement("div");
     div.classList.add("grid");
-    div.style.cssText = `min-width: ${pixel}px; min-height: ${pixel}px; flex: 1;`;
     gridContainer.appendChild(div);
   }
   color();
